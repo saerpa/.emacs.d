@@ -33,7 +33,7 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/Documents/Org/todo.org" "Tasks")
 	 "* TODO %?\n %i\n %a")
-	("d" "Diary" entry (file+datetree "~/Documents/Org/.Diary/2016.org")
+	("d" "Diary" entry (file+datetree (concat "~/Documents/Org/.Diary/" (format-time-string "%Y") ".org"))
 	 "* %?\n写于 %U\n %i\n %a")
 	("p" "Pieces" entry (file+headline "~/Documents/Org/capture.org" "Later")
 	 "* %?")))
