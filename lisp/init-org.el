@@ -60,9 +60,7 @@
 ;;blog configures
 (require 'ox-publish)
 (setq org-publish-project-alist
-      '(
-	;;the notes component
-	("blog-notes"
+      '(("blog-notes"
 	 :base-directory "~/saerpa.github.io/org/"
 	 :base-extension "org"
 	 :publishing-directory "~/saerpa.github.io/"
@@ -79,15 +77,39 @@
 	 :sitemap-sort-files anti-chronologically
 	 :sitemap-file-entry-format "%d ⏳ %t"
 	 :auto-preamble t)
-	;;the static component
 	("blog-static"
-	 :base-directory "~/saerpa.github.io/org/"
+	 :base-directory "~/saerpa.github.io/img/"
 	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/saerpa.github.io/"
+	 :publishing-directory "~/saerpa.github.io/img/"
 	 :recursive t
 	 :publishing-function org-publish-attachment)
-	;;the publish component
+
+
+	("diary-notes"
+	 :base-directory "~/Documents/Org/.Diary/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/Documents/Org/.Diary/"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :headline-levels 4 ;just the default for this project
+	 :section-numbers nil
+	 :author "saerpa"
+	 :email "saerpa@163.com"
+	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg-classic.css\" />"
+	 :auto-sitemap t ;gentrate sitemap.org automagically...
+	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
+	 :sitemap-title "Sitemap" ;... with title 'Sitemap'
+	 :sitemap-sort-files anti-chronologically
+	 :sitemap-file-entry-format "%d ⏳ %t"
+	 :auto-preamble t)
+	("diary-static"
+	 :base-directory "~/Documents/Org/.Diary/img/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :publishing-directory "~/Documents/Org/.Diary/img/"
+	 :recursive t
+	 :publishing-function org-publish-attachment)
+
 	("blog" :components("blog-notes" "blog-static"))
-	))
+	("diary" :components("diary-notes" "diary-static"))))
 
 (provide 'init-org)
