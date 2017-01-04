@@ -57,7 +57,7 @@
 ;;using org-mime to email
 ;;(require 'org-mime)
 
-;;blog configures
+;;org publish
 (require 'ox-publish)
 (setq org-publish-project-alist
       '(("blog-notes"
@@ -75,15 +75,14 @@
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
 	 :sitemap-title "Sitemap" ;... with title 'Sitemap'
 	 :sitemap-sort-files anti-chronologically
-	 :sitemap-file-entry-format "%d ⏳ %t"
+	 :sitemap-file-entry-format "%d 🍀 %t"
 	 :auto-preamble t)
-	("blog-static"
-	 :base-directory "~/saerpa.github.io/img/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/saerpa.github.io/img/"
-	 :recursive t
-	 :publishing-function org-publish-attachment)
-
+	;;	("blog-static"
+	;;	 :base-directory "~/saerpa.github.io/img/"
+	;;	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	;;	 :publishing-directory "~/saerpa.github.io/img/"
+	;;	 :recursive t
+	;;	 :publishing-function org-publish-attachment)
 
 	("diary-notes"
 	 :base-directory "~/Documents/Org/.Diary/org/"
@@ -99,17 +98,18 @@
 	 :auto-sitemap t ;gentrate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
 	 :sitemap-title "Sitemap" ;... with title 'Sitemap'
-	 :sitemap-sort-files anti-chronologically
-	 :sitemap-file-entry-format "%d ⏳ %t"
+	 :sitemap-sort-files alphabetically
+	 :sitemap-file-entry-format "%d ㊙ %t"
 	 :auto-preamble t)
-	("diary-static"
-	 :base-directory "~/Documents/Org/.Diary/img/"
-	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/Documents/Org/.Diary/img/"
-	 :recursive t
-	 :publishing-function org-publish-attachment)
+	;;	("diary-static"
+	;;	 :base-directory "~/Documents/Org/.Diary/img/"
+	;;	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	;;	 :publishing-directory "~/Documents/Org/.Diary/img/"
+	;;	 :recursive t
+	;;	 :publishing-function org-publish-attachment)
 
-	("blog" :components("blog-notes" "blog-static"))
-	("diary" :components("diary-notes" "diary-static"))))
+	;;	("blog" :components("blog-notes" "blog-static"))
+	;;	("diary" :components("diary-notes" "diary-static"))
+	))
 
 (provide 'init-org)
