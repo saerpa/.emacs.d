@@ -16,11 +16,13 @@
 
 (defvar MyPackages
   '(
+    auctex
     ivy
     swiper
     company
     magit
     markdown-mode
+    find-file-in-project
     yasnippet
     iedit
     expand-region

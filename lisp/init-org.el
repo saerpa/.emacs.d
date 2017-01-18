@@ -112,4 +112,10 @@
 	;;	("diary" :components("diary-notes" "diary-static"))
 	))
 
+;; active Babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((C . t)
+   (sh . t)))
+
 (provide 'init-org)
