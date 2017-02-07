@@ -28,10 +28,11 @@
     expand-region
     window-numbering
     company-statistics
-    ;;elpy
-    ;;ein
-    ;;py-autopep8
+    elpy
+    ein
+    py-autopep8
     flyspell
+    flycheck
     ))
 
 (mapc #'(lambda(package)
