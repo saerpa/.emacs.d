@@ -70,7 +70,11 @@
 	 :section-numbers nil
 	 :author "saerpa"
 	 :email "saerpa@163.com"
+	 :export-author-info nil
+	 :export-creator-info nil
+	 :table-of-contents nil
 	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg-classic.css\" />"
+	 :html-postamble "<p class=\"date\">Updated last: %C</p>"
 	 :auto-sitemap t ;gentrate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
 	 :sitemap-title "Sitemap" ;... with title 'Sitemap'
