@@ -72,8 +72,10 @@
 	 :email "saerpa@163.com"
 	 :export-author-info nil
 	 :export-creator-info nil
+	 :with-toc nil
 	 :table-of-contents nil
 	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg-classic.css\" />"
+	 :html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/worg-classic.css\" />"
 	 :html-postamble "<p class=\"date\">Updated last: %C</p>"
 	 :auto-sitemap t ;gentrate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
