@@ -31,11 +31,11 @@
 (setq org-agenda-files (list "~/Documents/Org/"))
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Documents/Org/todo.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/Documents/Org/todo.org" "todo")
 	 "* TODO %?\n %i\n %a")
 	("d" "Diary" entry (file+datetree (concat "~/Documents/Org/.Diary/" (format-time-string "%Y") ".org"))
 	 "* %?\n写于 %U\n %i\n %a")
-	("p" "Pieces" entry (file+headline "~/Documents/Org/capture.org" "Later")
+	("c" "Capture" entry (file+headline "~/Documents/Org/capture.org" "misc")
 	 "* %?")))
 
 ;;add TODO keywords
@@ -72,10 +72,10 @@
 	 :email "saerpa@163.com"
 	 :export-author-info nil
 	 :export-creator-info nil
-	 :with-toc nil
+	 :with-toc t
 	 :table-of-contents nil
-	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg-classic.css\" />"
-	 :html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/worg-classic.css\" />"
+	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/org.css\" />"
+	 :html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/org.css\" />"
 	 :html-postamble "<p class=\"date\">Updated last: %C</p>"
 	 :auto-sitemap t ;gentrate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
@@ -101,7 +101,7 @@
 	 :section-numbers nil
 	 :author "saerpa"
 	 :email "saerpa@163.com"
-	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/worg-classic.css\" />"
+	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/org.css\" />"
 	 :auto-sitemap t ;gentrate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
 	 :sitemap-title "Sitemap" ;... with title 'Sitemap'
