@@ -16,6 +16,7 @@
   (require 'init-company)
   (require 'init-org)
   (require 'init-auctex)
+  (require 'init-cal-china-x)
   (require 'init-python))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
