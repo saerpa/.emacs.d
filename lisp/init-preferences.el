@@ -33,8 +33,6 @@
 ;;auto save abbrev
 (setq save-abbrevs 'silently)
 
-
-
 ;; Mutt support.
 (setq auto-mode-alist (append '(("/tmp/mutt.*" . mail-mode)) auto-mode-alist))
 
@@ -43,15 +41,5 @@
 
 ;; turn on abbrev mode globally
 (setq-default abbrev-mode t)
-
-;;(elpy-enable)
-;;(when (require 'flycheck nil t)
-;;  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-;;  (add-hook 'elpy-mode-hook 'flycheck-mode))
-;;
-;;(elpy-use-ipython)
-
-;;(require 'py-autopep8)
-;;(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
 (provide 'init-preferences)
