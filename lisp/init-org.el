@@ -75,7 +75,7 @@
 	 :with-toc t
 	 :table-of-contents nil
 	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"css/org.css\" />"
-	 :html-head-extra "<link rel=\"stylesheet\" type=\"text/css\" href=\"../css/org.css\" />"
+	 :html-head-extra  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
 	 :html-postamble "<p class=\"date\">Updated last: %C</p>"
 	 :auto-sitemap t ;gentrate sitemap.org automagically...
 	 :sitemap-filename "sitemap.org" ;...call it sitemap.org (it's the default)...
