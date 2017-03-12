@@ -20,6 +20,7 @@
     ivy
     swiper
     company
+    neotree
     magit
     markdown-mode
     find-file-in-project
