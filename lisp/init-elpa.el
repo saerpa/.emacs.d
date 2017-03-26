@@ -34,6 +34,7 @@
     py-autopep8
     flyspell
     flycheck
+    plantuml-mode
     ))
 
 (mapc #'(lambda(package)

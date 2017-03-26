@@ -126,6 +126,15 @@
    (C . t)
    (sh . t)
    (latex . t)
+   (ditaa . t)
+   (plantuml . t)
+   (dot . t)
    (python . t)))
+
+(setq org-ditta-jar-path (expand-file-name "/usr/share/emacs/24.4/lisp/contrib/scripts/ditaa.jar"))
+(setq org-plantuml-jar-path (expand-file-name "/usr/share/emacs/24.4/lisp/contrib/scripts/plantuml.jar"))
+
+;; org mode do not prompt me
+(setq org-confirm-babel-evaluate nil)
 
 (provide 'init-org)
