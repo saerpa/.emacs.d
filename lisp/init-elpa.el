@@ -35,6 +35,8 @@
     flyspell
     flycheck
     plantuml-mode
+    ace-jump-mode
+    pinyin-search
     ))
 
 (mapc #'(lambda(package)
