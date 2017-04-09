@@ -61,4 +61,7 @@
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 
+;; enable rainbow-delimiters-mode
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+
 (provide 'init-preferences)

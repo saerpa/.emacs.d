@@ -37,6 +37,8 @@
     plantuml-mode
     ace-jump-mode
     pinyin-search
+    indent-guide
+    rainbow-delimiters
     ))
 
 (mapc #'(lambda(package)
