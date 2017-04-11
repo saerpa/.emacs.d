@@ -39,6 +39,7 @@
     pinyin-search
     indent-guide
     rainbow-delimiters
+    notmuch
     ))
 
 (mapc #'(lambda(package)
