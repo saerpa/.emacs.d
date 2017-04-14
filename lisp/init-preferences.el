@@ -6,12 +6,10 @@
 (setq make-backup-files nil) ;turn off make-backup-files
 (setq auto-save-default nil) ;stop creating those #auto-saved# files
 (fset 'yes-or-no-p 'y-or-n-p) ;less typing when Emacs ask you yes or no
-(show-paren-mode 1)
+;;(show-paren-mode 1)
 (electric-pair-mode 1) ;auto close bracket insertion
 (delete-selection-mode 1)
 (global-auto-revert-mode 1) ;自动加载外部修改过的文件
-(global-company-mode 1) ;enable company
-
 (require 'recentf) ;enable recentf-mode
 (recentf-mode 1)
 
@@ -36,8 +34,8 @@
 ;; Mutt support.
 (setq auto-mode-alist (append '(("/tmp/mutt.*" . mail-mode)) auto-mode-alist))
 
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
+;;(ivy-mode 1)
+;;(setq ivy-use-virtual-buffers t)
 
 ;; turn on abbrev mode globally
 (setq-default abbrev-mode t)

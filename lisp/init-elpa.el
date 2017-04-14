@@ -16,30 +16,27 @@
 
 (defvar MyPackages
   '(
-    auctex
-    ivy
-    swiper
+    helm
     company
+    company-statistics
     neotree
     magit
-    markdown-mode
-    find-file-in-project
     yasnippet
     iedit
     expand-region
     window-numbering
-    company-statistics
+    flycheck
+    ace-jump-mode
+    indent-guide
+    notmuch
     elpy
     ein
     py-autopep8
-    flyspell
-    flycheck
     plantuml-mode
-    ace-jump-mode
-    pinyin-search
-    indent-guide
     rainbow-delimiters
-    notmuch
+    markdown-mode
+    ;; ivy
+    ;; swiper
     ))
 
 (mapc #'(lambda(package)

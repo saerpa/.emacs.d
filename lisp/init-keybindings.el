@@ -3,8 +3,8 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-;") 'iedit-mode)
 
-;; swiper
-(global-set-key "\C-s" 'swiper)
+;; neotree
+(global-set-key [f8] 'neotree-toggle)
 
 ;; company
 (with-eval-after-load 'company
@@ -13,7 +13,7 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
-;; pinyin-search
-(global-set-key (kbd "C-c C-s") 'isearch-forward-pinyin)
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (provide 'init-keybindings)

@@ -7,16 +7,15 @@
 
 (let ((file-name-handler-alist nil))
   (require 'init-elpa)
+  (require 'init-helm)
+  (require 'init-company)
   (require 'init-ui)
   (require 'mode-line)
   (require 'init-preferences)
   (require 'hippie-exp)
   (require 'functions)
   (require 'init-keybindings)
-  (require 'init-company)
   (require 'init-org)
-  (require 'init-auctex)
-  (require 'init-cal-china-x)
   (require 'init-python)
   (require 'init-notmuch))
 (custom-set-variables
