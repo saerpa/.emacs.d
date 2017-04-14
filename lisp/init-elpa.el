@@ -29,6 +29,7 @@
     ace-jump-mode
     indent-guide
     notmuch
+    evil
     elpy
     ein
     py-autopep8

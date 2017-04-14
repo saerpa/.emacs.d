@@ -62,4 +62,8 @@
 ;; enable rainbow-delimiters-mode
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
+;; enable evil
+(require 'evil)
+(evil-mode 1)
+
 (provide 'init-preferences)
