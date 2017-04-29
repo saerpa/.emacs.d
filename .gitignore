@@ -1,5 +1,5 @@
 /auto-save-list
-/elpa
+/elpa*
 recentf
 bookmarks
 emojis/
@@ -9,3 +9,5 @@ company-statistics-cache.el
 games/
 newsticker/
 projectile-bookmarks.eld
+*.elc
+.*

@@ -1,3 +1,4 @@
+(require-package 'window-numbering)
 
 ;; From http://emacs-fu.blogspot.jp/2011/08/customizing-mode-line.html
 ;; use setq-default to set it for /all/ modes
@@ -15,7 +16,6 @@
 	       (propertize "%02l" 'face 'font-lock-type-face) ","
 	       (propertize "%02c" 'face 'font-lock-type-face)
 	       ") "
-	       
 	       ;; relative position, size of file
 	       "["
 	       (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
