@@ -90,9 +90,9 @@
 ;; ----------------------------------------------------------------------------
 ;; Automatic byte compilation
 ;; ----------------------------------------------------------------------------
-(when (maybe-require-package 'auto-compile)
-  (auto-compile-on-save-mode 1)
-  (auto-compile-on-load-mode 1))
+;; (when (maybe-require-package 'auto-compile)
+;;   (auto-compile-on-save-mode 1)
+;;   (auto-compile-on-load-mode 1))
 
 ;; ----------------------------------------------------------------------------
 ;; Load .el if newer than corresponding .elc
@@ -148,7 +148,7 @@
     (indent-guide-mode -1)))
 
 (defvar sanityinc/lispy-modes-hook
-  '(enable-paredit-mode
+  '(;;enable-paredit-mode
     turn-on-eldoc-mode
     redshank-mode
     sanityinc/disable-indent-guide

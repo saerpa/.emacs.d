@@ -1,3 +1,4 @@
+(require-package 'company-statistics)
 
 (setq tab-always-indent 'complete)  ;; use 't when company is disabled
 (add-to-list 'completion-styles 'initials t)
@@ -8,12 +9,20 @@
   (add-hook 'after-init-hook 'global-company-mode)
   (add-hook 'after-init-hook 'company-statistics-mode)
   (after-load 'company
-    (diminish 'company-mode "CMP")
+    ;;    (diminish 'company-mode "CMP")
     (define-key company-mode-map (kbd "M-/") 'company-complete)
-    (define-key company-active-map (kbd "M-/") 'company-select-next)
+    ;;(define-key company-active-map (kbd "M-/") 'company-select-next)
     (setq-default company-backends '((company-capf company-dabbrev-code) company-dabbrev)
                   company-dabbrev-other-buffers 'all))
-  (global-set-key (kbd "M-C-/") 'company-complete)
+  ;;(global-set-key (kbd "M-C-/") 'company-complete)
+
+  ;; company
+  ;; (with-eval-after-load 'company
+  ;;   (define-key company-active-map (kbd "M-n") nil)
+  ;;   (define-key company-active-map (kbd "M-p") nil)
+  ;;   (define-key company-active-map (kbd "C-n") #'company-select-next)
+  ;;   (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
   (when (maybe-require-package 'company-quickhelp)
     (add-hook 'after-init-hook 'company-quickhelp-mode))
 

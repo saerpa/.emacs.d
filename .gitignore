@@ -1,5 +1,7 @@
 /auto-save-list
 /elpa*
+/anaconda-mode
+/request
 recentf
 bookmarks
 emojis/
@@ -11,3 +13,5 @@ newsticker/
 projectile-bookmarks.eld
 *.elc
 .*
+history
+org-clock-save.el

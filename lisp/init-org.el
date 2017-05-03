@@ -77,9 +77,9 @@
 (setq org-capture-templates
       '(("t" "todo" entry (file+headline "~/Documents/Org/todo.org" "todo")
 	 "* TODO %?\n%U\n" :clock-resume t)
-	("d" "Diary" entry (file+datetree (concat "~/Documents/Org/.Diary/" (format-time-string "%Y") ".org"))
-	 "* %?\n写于 %U\n %i\n %a")
-	("c" "Capture" entry (file+headline "~/Documents/Org/capture.org" "misc")
+	("d" "diary" entry (file+datetree (concat "~/Documents/Org/.Diary/" (format-time-string "%Y") ".org"))
+	 "* %?\n写于 %U\n")
+	("c" "capture" entry (file+headline "~/Documents/Org/capture.org" "misc")
 	 "* %?")
 	("n" "note" entry (file "~/Documents/Org/note.org")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)

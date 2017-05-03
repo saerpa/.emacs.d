@@ -39,9 +39,6 @@
                          ("melpa" . "http://elpa.zilongshanren.com/melpa/")))
 
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
 ;;; On-demand installation of packages
 
 (defun require-package (package &optional min-version no-refresh)
@@ -74,6 +71,9 @@ locate PACKAGE."
 
 (setq package-enable-at-startup nil)
 (package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 (require-package 'fullframe)
 (fullframe list-packages quit-window)

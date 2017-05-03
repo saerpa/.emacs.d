@@ -1,6 +1,8 @@
 (fset 'yes-or-no-p 'y-or-n-p) ;less typing when Emacs ask you yes or no
 (yas-global-mode 1) ;enable yas-global-mode
 
+(require-package 'neotree)
+(global-set-key [f8] 'neotree-toggle)
 ;; Emacs Dired mode 使用唯一一个缓冲区
 (put 'dired-find-alternate-file 'disabled nil)
 ;; 主动加载 Dired Mode
@@ -19,23 +21,12 @@
 ;; turn on abbrev mode globally
 (setq-default abbrev-mode t)
 
-;; ace jump mode
-(autoload
-  'ace-jump-mode
-  "ace-jump-mode"
-  "Emacs quick move minor mode"
-  t)
-;; you can select the key you prefer to
-(define-key global-map (kbd "C-c SPC") 'ace-jump-char-mode)
-
-;; enable a more powerful jump back function from ace jump mode
-(autoload
-  'ace-jump-mode-pop-mark
-  "ace-jump-mode"
-  "Ace jump back:-)"
-  t)
-(eval-after-load "ace-jump-mode"
-  '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(require-package 'evil)
+(require 'evil)
+(evil-mode 1)
+(setq evil-visual-state-cursor 'hbar)
+(setq evil-normal-state-cursor 'box)
+(setq evil-insert-state-cursor 'bar)
+(setq evil-emacs-state-cursor 'box)
 
 (provide 'init-misc)

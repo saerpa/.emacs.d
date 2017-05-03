@@ -1,4 +1,3 @@
-(require-package 'window-numbering)
 
 ;; From http://emacs-fu.blogspot.jp/2011/08/customizing-mode-line.html
 ;; use setq-default to set it for /all/ modes
