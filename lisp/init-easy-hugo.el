@@ -1,0 +1,10 @@
+
+(require-package 'easy-hugo)
+(setq easy-hugo-basedir "~/blog/saerpa.github.io/")
+(setq easy-hugo-url "https://saerpa.github.io/")
+(setq easy-hugo-sshdomain "saerpa.github.io")
+(setq easy-hugo-root "~/blog/saerpa.github.io/")
+(setq easy-hugo-previewtime "300")
+(setq easy-hugo-default-ext ".org")
+(define-key global-map (kbd "C-c C-e") 'easy-hugo)
+(provide 'init-easy-hugo)

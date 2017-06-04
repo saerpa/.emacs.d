@@ -56,6 +56,8 @@
 (require 'init-keybindings)
 (require 'mode-line)
 (require 'init-notmuch)
+(require 'init-easy-hugo)
+(require 'init-evil)
 
 ;; Extra packages which don't require any configuration
 
