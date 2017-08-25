@@ -7,5 +7,4 @@
   (setq-default ag-highlight-search t)
   (global-set-key (kbd "M-?") 'ag-project))
 
-
 (provide 'init-grep)

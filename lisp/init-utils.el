@@ -1,38 +1,35 @@
-(if (fboundp 'with-eval-after-load)
-    (defalias 'after-load 'with-eval-after-load)
-  (defmacro after-load (feature &rest body)
-    "After FEATURE is loaded, evaluate BODY."
-    (declare (indent defun))
-    `(eval-after-load ,feature
-       '(progn ,@body))))
+;; On-demand installation of packages
+
+(defun require-package (package &optional min-version no-refresh)
+  "Install given PACKAGE, optionally requiring MIN-VERSION.
+If NO-REFRESH is non-nil, the available package lists will not be
+re-downloaded in order to locate PACKAGE."
+  (if (package-installed-p package min-version)
+      t
+    (if (or (assoc package package-archive-contents) no-refresh)
+        (if (boundp 'package-selected-packages)
+            ;; Record this as a package the user installed explicitly
+            (package-install package nil)
+          (package-install package))
+      (progn
+        (package-refresh-contents)
+        (require-package package min-version t)))))
+
+(defun maybe-require-package (package &optional min-version no-refresh)
+  "Try to install PACKAGE, and return non-nil if successful.
+In the event of failure, return nil and print a warning message.
+Optionally require MIN-VERSION.  If NO-REFRESH is non-nil, the
+available package lists will not be re-downloaded in order to
+locate PACKAGE."
+  (condition-case err
+      (require-package package min-version no-refresh)
+    (error
+     (message "Couldn't install optional package `%s': %S" package err)
+     nil)))
 
 
-;;----------------------------------------------------------------------------
-;; Handier way to add modes to auto-mode-alist
-;;----------------------------------------------------------------------------
-(defun add-auto-mode (mode &rest patterns)
-  "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
-  (dolist (pattern patterns)
-    (add-to-list 'auto-mode-alist (cons pattern mode))))
-
-
-;;----------------------------------------------------------------------------
-;; String utilities missing from core emacs
-;;----------------------------------------------------------------------------
-(defun sanityinc/string-all-matches (regex str &optional group)
-  "Find all matches for `REGEX' within `STR', returning the full match string or group `GROUP'."
-  (let ((result nil)
-        (pos 0)
-        (group (or group 0)))
-    (while (string-match regex str pos)
-      (push (match-string group str) result)
-      (setq pos (match-end group)))
-    result))
-
-
-;;----------------------------------------------------------------------------
 ;; Delete the current file
-;;----------------------------------------------------------------------------
+
 (defun delete-this-file ()
   "Delete the current file, and kill the buffer."
   (interactive)
@@ -43,9 +40,8 @@
     (kill-this-buffer)))
 
 
-;;----------------------------------------------------------------------------
 ;; Rename the current file
-;;----------------------------------------------------------------------------
+
 (defun rename-this-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive "sNew name: ")
@@ -59,9 +55,9 @@
       (set-visited-file-name new-name)
       (rename-buffer new-name))))
 
-;;----------------------------------------------------------------------------
+
 ;; Browse current HTML file
-;;----------------------------------------------------------------------------
+
 (defun browse-current-file ()
   "Open the current file as a URL using `browse-url'."
   (interactive)
@@ -73,11 +69,14 @@
 
 
 ;; indent-buffer
+
 (defun indent-buffer()
   (interactive)
   (indent-region (point-min) (point-max)))
 
+
 ;; indent-region-or-buffer
+
 (defun indent()
   (interactive)
   (save-excursion
@@ -91,6 +90,7 @@
       )))
 
 ;; hidden-dos-eol
+
 (defun hidden-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
   (interactive)
@@ -99,17 +99,12 @@
   (aset buffer-display-table ?\^M []))
 
 ;; remove-dos-eol
+
 (defun remove-dos-eol ()
   "Replace DOS eolns CR LF with Unix eolns CR"
+
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
-
-;; 光标在括号内时高亮两边的括号
-;;(defadvice show-paren-function (around fix-show-paren-function activate)
-;;  (cond ((looking-at-p "\\s(") ad-do-it)
-;;	(t (save-excursion
-;;	     (ignore-errors (backward-up-list))
-;;	     ad-do-it))))
 
 (provide 'init-utils)

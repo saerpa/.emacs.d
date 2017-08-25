@@ -1,8 +1,16 @@
+;; Character sets
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8) ;set coding environment: utf-8
+
+;; specify font for all unicode characters
+(when (member "Symbola" (font-family-list))
+  (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+
 (fset 'yes-or-no-p 'y-or-n-p) ;less typing when Emacs ask you yes or no
-(yas-global-mode 1) ;enable yas-global-mode
 
 (require-package 'neotree)
 (global-set-key [f8] 'neotree-toggle)
+
 ;; Emacs Dired mode 使用唯一一个缓冲区
 (put 'dired-find-alternate-file 'disabled nil)
 ;; 主动加载 Dired Mode
@@ -20,5 +28,20 @@
 
 ;; turn on abbrev mode globally
 (setq-default abbrev-mode t)
+
+;; Extra packages which don't require any configuration
+
+(require-package 'gnuplot)
+(require-package 'htmlize)
+
+;; Allow access from emacsclient
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; Variables configured via the interactive 'customize' interface
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 
 (provide 'init-misc)
