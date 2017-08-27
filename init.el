@@ -24,5 +24,4 @@
 (require 'init-org)
 (require 'init-misc)
 (require 'mode-line)
-(require 'init-easy-hugo)
 (require 'init-evil)
