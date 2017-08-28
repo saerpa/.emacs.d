@@ -14,7 +14,7 @@
 
 (require 'init-utils)
 (require 'init-gui-frames)
-(require 'init-helm)
+(require 'init-ivy)
 (require 'init-grep)
 (require 'init-uniquify)
 (require 'init-flycheck)
@@ -25,3 +25,4 @@
 (require 'init-misc)
 (require 'mode-line)
 (require 'init-evil)
+(require 'init-easy-hugo)
