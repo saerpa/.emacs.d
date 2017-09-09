@@ -43,5 +43,7 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
+;; markdown-mode
+(require-package 'markdown-mode)
 
 (provide 'init-misc)

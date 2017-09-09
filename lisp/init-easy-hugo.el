@@ -1,7 +1,7 @@
 (require-package 'easy-hugo)
 
 (setq easy-hugo-basedir "~/Blog/saerpa/")
-(setq easy-hugo-url "https://saerpa/")
+(setq easy-hugo-url "https://saerpa.coding.me/")
 (setq easy-hugo-sshdomain "saerpa.coding.me")
 (setq easy-hugo-root "~/Blog/saerpa/")
 (setq easy-hugo-previewtime "300")
