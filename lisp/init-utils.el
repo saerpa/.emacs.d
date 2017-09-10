@@ -107,4 +107,10 @@ locate PACKAGE."
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
 
+;; exec-path-from-shell
+(require-package 'exec-path-from-shell)
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+
 (provide 'init-utils)
