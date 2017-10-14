@@ -1,6 +1,6 @@
 (require-package 'elpy)
 (elpy-enable)
-(elpy-use-ipython)
+;;(elpy-use-ipython)
 
 (require-package 'ein)
 (require 'ein)
