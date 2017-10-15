@@ -11,6 +11,9 @@
 (require-package 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
+(recentf-mode 1)
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
 ;; Emacs Dired mode 使用唯一一个缓冲区
 (put 'dired-find-alternate-file 'disabled nil)
 ;; 主动加载 Dired Mode

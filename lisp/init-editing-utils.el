@@ -25,6 +25,6 @@
 
 (show-paren-mode 1)
 
-(global-set-key (kbd "C-.") 'set-mark-command)
+;;(global-set-key (kbd "C-.") 'set-mark-command)
 
 (provide 'init-editing-utils)
