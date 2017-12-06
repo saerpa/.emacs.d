@@ -23,7 +23,12 @@
 
 (transient-mark-mode t)
 
+(set-cursor-color "#FF1999")
+
 (show-paren-mode 1)
+
+(require-package 'ace-pinyin)
+(ace-pinyin-global-mode 1)
 
 ;;(global-set-key (kbd "C-.") 'set-mark-command)
 
