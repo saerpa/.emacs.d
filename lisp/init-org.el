@@ -55,7 +55,7 @@
 	("c" "capture" entry (file+headline "~/Documents/Org/capture.org" "misc")
 	 "* %?")
 	("n" "note" entry (file "~/Documents/Org/note.org")
-         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+         "* %? \n%U" :clock-resume t)
 	))
 
 ;;add TODO keywords
