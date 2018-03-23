@@ -1,5 +1,4 @@
 (setq-default
- blink-cursor-interval 0.4
  bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
  case-fold-search t
@@ -22,10 +21,9 @@
       auto-revert-verbose nil)
 
 (transient-mark-mode t)
-
-(set-cursor-color "#FF1999")
-
 (show-paren-mode 1)
+
+(setq pop-up-frames nil) ; t for true, nil for false
 
 (require-package 'ace-pinyin)
 (ace-pinyin-global-mode 1)

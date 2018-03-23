@@ -2,7 +2,7 @@
 (require 'evil)
 (evil-mode 0)
 (setq evil-visual-state-cursor '(box "yellow")
-      evil-insert-state-cursor '((bar . 5) "green")
-      evil-normal-state-cursor '(box "purple"))
+      evil-insert-state-cursor '(box "cyan")
+      evil-normal-state-cursor '(hollow "cyan"))
 
 (provide 'init-evil)

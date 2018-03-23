@@ -25,11 +25,8 @@
 
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 (setq frame-title-format "%b")
-(setq pop-up-frames nil) ; t for true, nil for false
-(global-linum-mode 1) ;显示行号
-(global-hl-line-mode -1) ;是否高亮当前行
-(blink-cursor-mode 1) ;是否闪烁光标
-(setq-default cursor-type 'bar) ;更改光标的样式
+(global-linum-mode 1)
+(global-hl-line-mode -1)
 
 (require-package 'window-numbering)
 (window-numbering-mode 1)
