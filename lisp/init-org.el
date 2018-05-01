@@ -163,6 +163,14 @@
    (python . t)))
 
 ;; org mode do not prompt me
-;;(setq org-confirm-babel-evaluate nil)
+(setq org-confirm-babel-evaluate nil)
+
+;; image view
+(add-hook 'org-babel-after-execute-hook 'img-view)
+
+(defun img-view()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
 
 (provide 'init-org)
