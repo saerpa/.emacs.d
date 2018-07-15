@@ -28,6 +28,10 @@
 (require-package 'ace-pinyin)
 (ace-pinyin-global-mode 1)
 
+(require-package 'paredit)
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code."
+  t)
 ;;(global-set-key (kbd "C-.") 'set-mark-command)
 
 (provide 'init-editing-utils)
