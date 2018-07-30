@@ -147,7 +147,6 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (C . t)
-   (sh . t)
    (latex . t)
    (ditaa . t)
    (plantuml . t)
