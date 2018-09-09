@@ -28,3 +28,4 @@
 (require 'mode-line)
 (require 'init-evil)
 (require 'init-easy-hugo)
+(require 'init-deft)
