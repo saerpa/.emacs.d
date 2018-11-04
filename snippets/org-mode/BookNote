@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: BookNote
+# key: bn
+# --
+
+书名： ${1:`(file-name-nondirectory buffer-file-name)`}
+作者： $2
+译者： ${3:无}
+校对： ${4:无}
+
+$0
