@@ -31,6 +31,10 @@
       org-agenda-use-tag-inheritance nil ;; 3-4x speedup
       )
 
+(require-package 'org-bullets)
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 ;; Targets include this file and any file contributing to the agenda - up to 5 levels deep
 (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
 
@@ -41,28 +45,32 @@
 ;;add org-agenda-files
 ;;hotkey: C-c [
 ;;replace your own org files
-(setq org-agenda-files (list "~/Documents/Org/"))
+(setq org-agenda-files (list "~/Documents/Org/gtd/task.org"))
 
 (setq org-capture-templates
-      '(("t" "todo" entry (file+headline "~/Documents/Org/todo.org" "todo")
-	 "* TODO %?\n%U\n" :clock-resume t)
-	("d" "diary" entry (file+datetree (lambda() (concat "~/Documents/.Diary/Org/" (format-time-string "%Y.org"))))
+      '(("d" "Diary" entry (file+datetree (lambda() (concat "~/Documents/.Diary/Org/" (format-time-string "%Y.org"))))
 	 "* %?\n写于 %U\n")
-	("c" "capture" entry (file+headline "~/Documents/Org/capture.org" "misc")
-	 "* %?")
-	("n" "note" entry (file "~/Documents/Org/note.org")
-         "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
-	))
+        ("i" "Idea" entry (file+headline "~/Documents/Org/gtd/task.org" "Ideas")
+         "** TODO %?\n%U")
+        ("n" "Note" entry (file "~/Documents/Org/gtd/note.org")
+         "* %?\n%U")
+        ("p" "Periodic" entry (file+headline "~/Documents/Org/gtd/task.org" "periodic")
+         "*** TODO %?\n%U")
+        ("s" "Schedule" entry (file+headline "~/Documents/Org/gtd/task.org" "schedule")
+         "*** TODO %?\n%U")
+        ("t" "Todo" entry (file+headline "~/Documents/Org/gtd/task.org" "todo")
+	 "*** TODO %?\n%U")))
 
 ;;add TODO keywords
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "|" "CANCELED(c@/!)" "DONE(d@)")))
+      '((sequence "TODO(t!)" "NEXT(n)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d@/!)" "ABORT(a@/!)")))
+
 
 ;;set faces for TODO keywords
-(setq org-todo-keyword-faces
-      '(("TODO" :foreground "red" :weitht bold)
- 	("CANCELED" :foreground "Orange" :weight bold)
- 	("DONE" :foreground "forest green" :weight bold)))
+;; (setq org-todo-keyword-faces
+;;       '(("TODO" :foreground "red" :weitht bold)
+;;  	("CANCELED" :foreground "Orange" :weight bold)
+;;  	("DONE" :foreground "forest green" :weight bold)))
 
 ;;; Agenda views
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
@@ -154,6 +162,14 @@
    (python . t)))
 
 ;; org mode do not prompt me
-;;(setq org-confirm-babel-evaluate nil)
+(setq org-confirm-babel-evaluate nil)
+
+;; image view
+(add-hook 'org-babel-after-execute-hook 'img-view)
+
+(defun img-view()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
 
 (provide 'init-org)

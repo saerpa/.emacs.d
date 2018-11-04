@@ -4,6 +4,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
+ '(company-show-numbers t)
+ '(custom-enabled-themes (quote (misterioso)))
+ '(linum-relative-current-symbol "->")
  '(package-selected-packages
    (quote
     (deft easy-hugo evil markdown-mode window-numbering magit jedi git-timemachine flycheck elpy ein counsel company-statistics company-quickhelp)))
@@ -15,3 +18,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "文泉驿等宽微米黑" :foundry "WQYF" :slant normal :weight normal :height 113 :width normal)))))
+ '(cursor ((t (:background "spring green"))))

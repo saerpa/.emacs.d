@@ -2,6 +2,9 @@
 
 (global-company-mode 1)
 
+(require-package 'company-quickhelp)
+(company-quickhelp-mode 1)
+
 (setq tab-always-indent 'complete)
 (add-to-list 'completion-styles 'initials t)
 ;; Stop completion-at-point from popping up completion buffers so eagerly

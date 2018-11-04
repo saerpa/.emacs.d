@@ -8,8 +8,7 @@
 (require 'ein-notebook)
 (require 'ein-subpackages)
 
-(require-package 'jedi)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)                 ; optional
+(setq indent-tabs-mode t)
+(setq python-indent 4)
 
 (provide 'init-python)

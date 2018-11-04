@@ -1,5 +1,4 @@
 (setq-default
- blink-cursor-interval 0.4
  bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
  case-fold-search t
@@ -22,9 +21,17 @@
       auto-revert-verbose nil)
 
 (transient-mark-mode t)
-
 (show-paren-mode 1)
 
+(setq pop-up-frames nil) ; t for true, nil for false
+
+(require-package 'ace-pinyin)
+(ace-pinyin-global-mode 1)
+
+(require-package 'paredit)
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code."
+  t)
 ;;(global-set-key (kbd "C-.") 'set-mark-command)
 
 (provide 'init-editing-utils)
