@@ -49,4 +49,8 @@
 ;; markdown-mode
 (require-package 'markdown-mode)
 
+;; emojify mode
+(require-package 'emojify)
+(add-hook 'after-init-hook #'global-emojify-mode)
+
 (provide 'init-misc)

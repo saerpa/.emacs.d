@@ -17,7 +17,7 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (require 'init-utils)
-(require 'init-python)
+;(require 'init-python)
 (require 'init-gui-frames)
 (require 'init-ivy)
 (require 'init-grep)
