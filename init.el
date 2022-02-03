@@ -39,6 +39,9 @@
   :config
   (counsel-mode 1))
 
+(use-package avy
+  :bind ("C-x ;" . avy-goto-char))
+
 (use-package magit
   :commands magit-status
   :custom
@@ -50,7 +53,37 @@
 ;;(use-package forge
 ;;  :after magit)
 
-;; ========== Default settings ==========
+;; ========== Org settings ==========
+
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
+	(shell . t)
+	(C . t)
+	(python . t)))
+
+  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+
+(setq org-src-fontify-natively t)
+(setq org-confirm-babel-evaluate nil)
+
+;; ========== Misc settings ==========
+(global-set-key (kbd "C-x SPC") 'set-mark-command)
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
-(load-theme 'tango)
+(load-theme 'leuven)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (avy use-package rainbow-delimiters magit keycast ivy-rich expand-region counsel consult))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
