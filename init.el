@@ -22,6 +22,10 @@
 (use-package expand-region
   :bind ("C-x =" . er/expand-region))
 
+(use-package keycast
+  :config
+  (keycast-mode t))
+
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper))
@@ -54,6 +58,10 @@
 ;;  :after magit)
 
 ;; ========== Org settings ==========
+(use-package org
+  :config
+  (setq org-src-fontify-natively t)
+  (setq org-confirm-babel-evaluate nil))
 
 (with-eval-after-load 'org
   (org-babel-do-load-languages
@@ -63,10 +71,12 @@
 	(C . t)
 	(python . t)))
 
-  (push '("conf-unix" . conf-unix) org-src-lang-modes))
+  (push '("conf-unix" . conf-unix) org-src-lang-modes)
 
-(setq org-src-fontify-natively t)
-(setq org-confirm-babel-evaluate nil)
+  (require 'org-tempo)
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("py" . "src python")))
 
 ;; ========== Misc settings ==========
 (global-set-key (kbd "C-x SPC") 'set-mark-command)
@@ -80,7 +90,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (avy use-package rainbow-delimiters magit keycast ivy-rich expand-region counsel consult))))
+    (org avy use-package rainbow-delimiters magit keycast ivy-rich expand-region counsel consult))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
