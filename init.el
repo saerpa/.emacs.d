@@ -82,7 +82,7 @@
 (global-set-key (kbd "C-x SPC") 'set-mark-command)
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
-(load-theme 'leuven)
+(load-theme 'whiteboard)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
