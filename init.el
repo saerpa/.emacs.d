@@ -82,12 +82,13 @@
 (global-set-key (kbd "C-x SPC") 'set-mark-command)
 (setq inhibit-startup-message t)
 (setq make-backup-files nil)
-(load-theme 'whiteboard)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-hide-leading-stars t)
  '(package-selected-packages
    (quote
     (org avy use-package rainbow-delimiters magit keycast ivy-rich expand-region counsel consult))))
