@@ -1,3 +1,4 @@
+
 ;; ========== Initialize package sources ==========
 (require 'package)
 
@@ -5,10 +6,10 @@
 			 ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
 
 (package-initialize)
+
 (unless package-archive-contents
   (package-refresh-contents))
 
-;; Initialize use-package on non-Linux platforms
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
 
@@ -16,21 +17,23 @@
 (setq use-package-always-ensure t)
 
 ;; ========== Packages install ==========
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
+;; (use-package rainbow-delimiters
+;;   :hook (prog-mode . rainbow-delimiters-mode))
 
-(use-package expand-region
-  :bind ("C-x =" . er/expand-region))
+;; (use-package expand-region
+;;   :bind ("C-x =" . er/expand-region))
 
-(use-package keycast
-  :config
-  (keycast-mode t))
+;; (use-package keycast
+;;   :config
+;;   (keycast-mode t))
 
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper))
   :config
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) "))
 
 (use-package ivy-rich
   :after ivy
@@ -43,13 +46,13 @@
   :config
   (counsel-mode 1))
 
-(use-package avy
-  :bind ("C-x ;" . avy-goto-char))
+;; (use-package avy
+;;   :bind ("C-x ;" . avy-goto-char))
 
-(use-package magit
-  :commands magit-status
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+;; (use-package magit
+;;   :commands magit-status
+;;   :custom
+;;   (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 ;; NOTE: Make sure to configure a GitHub token before using this package!
 ;; - https://magit.vc/manual/forge/Token-Creation.html#Token-Creation
@@ -65,11 +68,11 @@
 
 (with-eval-after-load 'org
   (org-babel-do-load-languages
-      'org-babel-load-languages
-      '((emacs-lisp . t)
-	(shell . t)
-	(C . t)
-	(python . t)))
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (shell . t)
+     (C . t)
+     (python . t)))
 
   (push '("conf-unix" . conf-unix) org-src-lang-modes)
 
@@ -79,19 +82,22 @@
   (add-to-list 'org-structure-template-alist '("py" . "src python")))
 
 ;; ========== Misc settings ==========
-(global-set-key (kbd "C-x SPC") 'set-mark-command)
+;; (global-set-key (kbd "C-x SPC") 'set-mark-command)
 (setq inhibit-startup-message t)
-(setq make-backup-files nil)
+;; (setq make-backup-files nil)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(show-paren-mode t)
+(global-hl-line-mode t)
+(load-theme 'manoj-dark)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-hide-leading-stars t)
- '(package-selected-packages
-   (quote
-    (org avy use-package rainbow-delimiters magit keycast ivy-rich expand-region counsel consult))))
+ '(org-hide-leading-stars t))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
