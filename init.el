@@ -26,6 +26,11 @@
 ;; (use-package keycast
 ;;   :config
 ;;   (keycast-mode t))
+(use-package counsel
+  :custom
+  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+  :config
+  (counsel-mode 1))
 
 (use-package ivy
   :diminish
@@ -40,11 +45,9 @@
   :init
   (ivy-rich-mode 1))
 
-(use-package counsel
-  :custom
-  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+(use-package projectile
   :config
-  (counsel-mode 1))
+  (projectile-mode +1))
 
 ;; (use-package avy
 ;;   :bind ("C-x ;" . avy-goto-char))
