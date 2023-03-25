@@ -12,6 +12,7 @@
 (require 'init-magit)
 (require 'init-company)
 (require 'init-projectile)
+(require 'init-pyim)
 (require 'init-misc)
 
 (setq custom-file (expand-file-name "lisp/init-custom.el" user-emacs-directory))
