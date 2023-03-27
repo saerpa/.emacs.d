@@ -16,6 +16,8 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 
+(add-hook 'org-mode-hook (lambda() (setq truncate-lines nil)))
+
 (with-eval-after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
