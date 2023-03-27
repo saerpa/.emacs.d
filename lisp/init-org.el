@@ -10,7 +10,7 @@
 (setq org-capture-templates
       '(("d" "Diary" entry (file+datetree (lambda() (concat my-org-file-root-dir "/Diary/" (format-time-string "%Y.org"))))
 	 "* %?\n%U")
-        ("t" "Todo" entry (file+headline (lambda() (concat my-org-file-root-dir "Gtd/Todo.org")) "Todo")
+        ("t" "Todo" entry (file+headline (lambda() (concat my-org-file-root-dir "Gtd/Todo.org")) "Todo List")
 	 "* TODO %?\n%U")))
 
 (global-set-key "\C-ca" 'org-agenda)
