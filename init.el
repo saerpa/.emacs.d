@@ -15,6 +15,8 @@
 (require 'init-pyim)
 (require 'init-which-key)
 (require 'init-cscope)
+(require 'init-semantic)
+(require 'init-eglot)
 (require 'init-misc)
 
 (setq custom-file (expand-file-name "lisp/init-custom.el" user-emacs-directory))
