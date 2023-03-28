@@ -3,6 +3,7 @@
 (menu-bar-mode t)
 (show-paren-mode t)
 (global-hl-line-mode 0)
+(global-display-fill-column-indicator-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
 (toggle-frame-maximized)
 (setq inhibit-startup-message t)
