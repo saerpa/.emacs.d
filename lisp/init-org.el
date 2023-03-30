@@ -6,12 +6,12 @@
   (setq org-hide-leading-stars t))
 
 (setq my-org-file-root-dir "~/Org/")
-(setq org-agenda-files (list (concat my-org-file-root-dir "Gtd/Todo.org")))
+(setq org-agenda-files (list (concat my-org-file-root-dir "Diary/")))
 (setq org-capture-templates
       '(("d" "Diary" entry (file+datetree (lambda() (concat my-org-file-root-dir "/Diary/" (format-time-string "%Y.org"))))
 	 "* %?\n%U")
-        ("t" "Todo" entry (file+headline (lambda() (concat my-org-file-root-dir "Gtd/Todo.org")) "Todo List")
-	 "* TODO %?\n%U")))
+        ("t" "Todo" entry (file+headline (lambda() (concat my-org-file-root-dir "Diary/Todo.org")) "Todo List")
+	 "* TODO %?")))
 
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
