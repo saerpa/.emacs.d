@@ -19,5 +19,5 @@
 (require 'init-eglot)
 (require 'init-misc)
 
-(setq custom-file (expand-file-name "lisp/init-custom.el" user-emacs-directory))
-(load custom-file)
+(setq custom-file (locate-user-emacs-file "lisp/init-custom.el"))
+(load custom-file 'noerror 'nomessage)
