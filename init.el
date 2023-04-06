@@ -17,6 +17,7 @@
 (require 'init-cscope)
 (require 'init-semantic)
 (require 'init-eglot)
+(require 'init-pangu-spacing)
 (require 'init-misc)
 
 (setq custom-file (locate-user-emacs-file "lisp/init-custom.el"))
