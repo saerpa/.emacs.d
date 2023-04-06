@@ -1,6 +1,7 @@
 
 (use-package pyim)
 (use-package pyim-basedict)
+(use-package posframe)
 
 (pyim-basedict-enable)
 (setq default-input-method "pyim")
