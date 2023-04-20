@@ -20,5 +20,8 @@
 (require 'init-pangu-spacing)
 (require 'init-misc)
 
+(autoload 'practice-mode "practice")
+(setq auto-mode-alist (cons '("\\.cmm\\'" . practice-mode) auto-mode-alist))
+
 (setq custom-file (locate-user-emacs-file "lisp/init-custom.el"))
 (load custom-file 'noerror 'nomessage)
