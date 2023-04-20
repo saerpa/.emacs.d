@@ -336,7 +336,7 @@ if that value is non-nil."
 (defun practice-electric-indent (arg)
   "Insert character and correct line's indentation."
   (interactive "P")
-  (insert last-command-char)
+  (insert last-command-event)
   (practice-indent-line))
 
 (provide 'practice-mode)
