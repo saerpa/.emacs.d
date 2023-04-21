@@ -18,6 +18,7 @@
 (require 'init-semantic)
 (require 'init-eglot)
 (require 'init-pangu-spacing)
+(require 'init-epa-file)
 (require 'init-misc)
 
 (autoload 'practice-mode "practice")
