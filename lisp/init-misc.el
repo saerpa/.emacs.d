@@ -3,6 +3,8 @@
 (menu-bar-mode t)
 (show-paren-mode t)
 (recentf-mode t)
+(electric-pair-mode t)
+(global-hl-line-mode t)
 (setq history-length 25)
 (savehist-mode t)
 (save-place-mode t)
