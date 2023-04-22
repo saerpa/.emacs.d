@@ -43,32 +43,6 @@
 (use-package org-roam
   :custom
   (org-roam-directory "~/Org/RoamNotes/")
-  ;; Creating the property "type" on my nodes
-  ;; Ref: https://jethrokuan.github.io/org-roam-guide
-  (cl-defmethod org-roam-node-type ((node org-roam-node))
-    "Return the TYPE of NODE."
-    (condition-case nil
-	(file-name-nondirectory
-	 (directory-file-name
-	  (file-name-directory
-	   (file-relative-name (org-roam-node-file node) org-roam-directory))))
-      (error "")))
-
-  ;; Modifying the display template to show the node "type"
-  (setq org-roam-node-display-template
-	(concat "${type:15} ${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-
-  (setq org-roam-capture-templates
-	'(("m" "main" plain "%?"
-	   :if-new (file+head "main/${slug}.org"
-			      "#+title: ${title}\n")
-	   :immediate-finish t
-	   :unnarrowed t)
-	  ("r" "reference" plain "%?"
-	   :if-new (file+head "reference/${title}.org"
-			      "#+title: ${title}\n")
-	   :immediate-finish t
-	   :unnarrowed t)))
 
   :bind
   (("C-c n l" . org-roam-buffer-toggle)
@@ -80,6 +54,34 @@
   :config
   (org-roam-setup)
   (org-roam-db-autosync-mode))
+
+;; Creating the property "type" on my nodes
+;; Ref: https://jethrokuan.github.io/org-roam-guide
+(require 'org-roam-node)
+(cl-defmethod org-roam-node-type ((node org-roam-node))
+  "Return the TYPE of NODE."
+  (condition-case nil
+      (file-name-nondirectory
+       (directory-file-name
+	(file-name-directory
+	 (file-relative-name (org-roam-node-file node) org-roam-directory))))
+    (error "")))
+
+;; Modifying the display template to show the node "type"
+(setq org-roam-node-display-template
+      (concat "${type:15} ${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+
+(setq org-roam-capture-templates
+      '(("m" "main" plain "%?"
+	 :if-new (file+head "main/${slug}.org"
+			    "#+title: ${title}\n")
+	 :immediate-finish t
+	 :unnarrowed t)
+	("r" "reference" plain "%?"
+	 :if-new (file+head "reference/${title}.org"
+			    "#+title: ${title}\n")
+	 :immediate-finish t
+	 :unnarrowed t)))
 
 ;; org-roam-ui
 (use-package org-roam-ui
