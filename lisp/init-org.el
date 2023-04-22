@@ -8,9 +8,9 @@
 (setq my-org-file-root-dir "~/Org/")
 (setq org-agenda-files (list (concat my-org-file-root-dir "Diary/")))
 (setq org-capture-templates
-      '(("d" "Diary" entry (file+datetree (lambda() (concat my-org-file-root-dir "/Diary/" (format-time-string "%Y.org"))))
+      '(("d" "Diary" entry (file+datetree (lambda() (concat my-org-file-root-dir "/Diary/" (format-time-string "%Y.org.gpg"))))
 	 "* %?\n%U")
-        ("t" "Todo" entry (file+headline (lambda() (concat my-org-file-root-dir "Diary/Todo.org")) "Todo List")
+        ("t" "Todo" entry (file+headline (lambda() (concat my-org-file-root-dir "Diary/Todo.org.gpg")) "Todo List")
 	 "* TODO %?")))
 
 (global-set-key "\C-ca" 'org-agenda)
