@@ -19,6 +19,7 @@
 (require 'init-eglot)
 (require 'init-pangu-spacing)
 (require 'init-epa-file)
+(require 'init-ace-window)
 (require 'init-misc)
 
 (autoload 'practice-mode "practice")
