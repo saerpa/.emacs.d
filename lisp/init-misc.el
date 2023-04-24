@@ -8,7 +8,6 @@
 (setq history-length 25)
 (savehist-mode t)
 (save-place-mode t)
-(global-hl-line-mode 0)
 (global-auto-revert-mode t)
 (global-display-fill-column-indicator-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
