@@ -21,6 +21,7 @@
 (require 'init-epa-file)
 (require 'init-ace-window)
 (require 'init-misc)
+(require 'neotree)
 
 (autoload 'practice-mode "practice")
 (setq auto-mode-alist (cons '("\\.cmm\\'" . practice-mode) auto-mode-alist))
