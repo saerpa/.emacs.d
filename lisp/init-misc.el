@@ -4,7 +4,7 @@
 (show-paren-mode t)
 (recentf-mode t)
 (electric-pair-mode t)
-(global-hl-line-mode t)
+(global-hl-line-mode nil)
 (setq history-length 25)
 (savehist-mode t)
 (save-place-mode t)
