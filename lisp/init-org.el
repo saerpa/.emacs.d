@@ -12,11 +12,15 @@
   (setq org-hide-leading-stars t)
   (setq my-org-file-root-dir "~/Org/")
   (setq org-agenda-files (list (concat my-org-file-root-dir "Gtd/")))
+  (setq org-todo-keywords
+	'((sequence "TODO(t)" "PENDING(p)" "|" "CANCEL(c)" "DONE(d)")))
+  (setq org-todo-keyword-faces '(("CANCEL" :foreground "light green" :weight bold)
+				 ("PENDING" :foreground "tomato" :weight bold)))
   (setq org-capture-templates
 	'(("d" "Diary" entry (file+datetree
 			      (lambda()
 				(concat my-org-file-root-dir "Diary/"
-					(format-time-string "%Y.org.gpg")))) "* %?\n%U")
+					(format-time-string "%Y.org.gpg")))) "* %?")
           ("t" "Todo" entry (file+headline
 			     (lambda()
 			       (concat my-org-file-root-dir "Gtd/Todo.org")) "Todo List") "* TODO %?")))
