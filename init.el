@@ -23,6 +23,7 @@
 (require 'init-misc)
 (require 'init-neotree)
 (require 'init-jinx)
+(require 'init-read)
 
 (autoload 'practice-mode "practice")
 (setq auto-mode-alist (cons '("\\.cmm\\'" . practice-mode) auto-mode-alist))

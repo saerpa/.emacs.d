@@ -3,8 +3,10 @@
 (use-package pyim-basedict)
 (use-package posframe)
 
-(pyim-basedict-enable)
 (setq default-input-method "pyim")
+(setq pyim-page-style 'vertical)
+
+(pyim-basedict-enable)
 (pyim-default-scheme 'xiaohe-shuangpin)
 
 (define-key pyim-mode-map "." 'pyim-page-next-page)
