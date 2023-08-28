@@ -1,11 +1,13 @@
 
 (use-package org
   :init
-  (add-hook 'org-mode-hook (lambda() (auto-fill-mode t)))
-  (add-hook 'org-mode-hook (lambda() (setq-local electric-pair-inhibit-predicate
-						 `(lambda(c)
-						    (if (char-equal c ?\<) t
-						      (,electric-pair-inhibit-predicate c))))))
+  (add-hook 'org-mode-hook (lambda()
+			     (auto-fill-mode t)
+			     (set-input-method 'pyim)
+			     (setq-local electric-pair-inhibit-predicate
+					 `(lambda(c)
+					    (if (char-equal c ?\<) t
+					      (,electric-pair-inhibit-predicate c))))))
   :config
   (setq org-src-fontify-natively t)
   (setq org-confirm-babel-evaluate nil)
