@@ -1,5 +1,5 @@
 
-(use-package org
+(use-package org :ensure t :defer t
   :init
   (add-hook 'org-mode-hook (lambda()
 			     (auto-fill-mode t)
@@ -9,23 +9,26 @@
 					    (if (char-equal c ?\<) t
 					      (,electric-pair-inhibit-predicate c))))))
   :config
-  (setq org-src-fontify-natively t)
-  (setq org-confirm-babel-evaluate nil)
-  (setq org-hide-leading-stars t)
-  (setq my-org-file-root-dir "~/Org/")
-  (setq org-agenda-files (list (concat my-org-file-root-dir "Gtd/")))
+  (setq org-src-fontify-natively t
+	org-hide-leading-stars t
+	x-underline-at-descent-line t)
+  (setq org-directory "~/Org")
+  (setq org-agenda-files (list (concat org-directory "/Diary/gtd.org")))
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "PENDING(p)" "|" "CANCEL(c)" "DONE(d)")))
-  (setq org-todo-keyword-faces '(("CANCEL" :foreground "light green" :weight bold)
+  (setq org-todo-keyword-faces '(("CANCEL" :foreground "maroon" :weight bold)
 				 ("PENDING" :foreground "tomato" :weight bold)))
   (setq org-capture-templates
 	'(("d" "Diary" entry (file+datetree
 			      (lambda()
-				(concat my-org-file-root-dir "Diary/"
+				(concat org-directory "/Diary/"
 					(format-time-string "%Y.org.gpg")))) "* %?")
           ("t" "Todo" entry (file+headline
 			     (lambda()
-			       (concat my-org-file-root-dir "Gtd/Todo.org")) "Todo List") "* TODO %?")))
+			       (concat org-directory "/Diary/gtd.org")) "Todo List") "* TODO %?")
+	  ("w" "Work" entry (file+headline
+			     (lambda()
+			       (concat org-directory "/Diary/work.org")) "Work List") "* TODO %? :work:\n%U\n")))
   (with-eval-after-load 'org
     (org-babel-do-load-languages
      'org-babel-load-languages
@@ -43,12 +46,13 @@
 
   :bind
   ("C-c a" . org-agenda)
+  ("C-c l" . org-store-link)
   ("C-c c" . org-capture))
 
 ;; org-roam
-(use-package org-roam
+(use-package org-roam :ensure t :defer t
   :custom
-  (org-roam-directory "~/Org/RoamNotes/")
+  (org-roam-directory (concat org-directory "/RoamNotes/"))
 
   :bind
   (("C-c n l" . org-roam-buffer-toggle)
@@ -90,7 +94,7 @@
 	 :unnarrowed t)))
 
 ;; org-roam-ui
-(use-package org-roam-ui
+(use-package org-roam-ui :ensure t :defer t
   :after org-roam
   :config
   (setq org-roam-ui-sync-theme t

@@ -1,27 +1,25 @@
 
-(tool-bar-mode -1)
-(menu-bar-mode t)
-(show-paren-mode t)
+(setq-default
+ dired-listing-switches "-alh"
+ use-short-answers t)
+
 (recentf-mode t)
-(electric-pair-mode t)
-(global-hl-line-mode -1)
-(setq history-length 25)
 (savehist-mode t)
-(save-place-mode t)
-;; (fido-vertical-mode t)
-(global-auto-revert-mode t)
-(global-display-fill-column-indicator-mode -1)
-(fset 'yes-or-no-p 'y-or-n-p)
-(toggle-frame-maximized)
-(setq inhibit-startup-message t)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq visible-bell t)
-(setq use-dialog-box nil)
-(setq global-auto-revert-non-file-buffers t)
-(setq dictionary-server "localhost")
-(setq next-line-add-newlines t)
-(add-hook 'before-save-hook 'delete-trailing-lines)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(use-package exec-path-from-shell :ensure t :defer t)
+(with-eval-after-load 'exec-path-from-shell
+  (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE" "NIX_SSL_CERT_FILE" "NIX_PATH"))
+    (add-to-list 'exec-path-from-shell-variables var)))
+
+(when (or (memq window-system '(mac ns x pgtk))
+          (unless (memq system-type '(ms-dos windows-nt))
+            (daemonp)))
+  (exec-path-from-shell-initialize))
+
+(use-package icomplete
+  :hook
+  (after-init . fido-vertical-mode)
+  :config
+  (setq completions-detailed t))
 
 (provide 'init-misc)
