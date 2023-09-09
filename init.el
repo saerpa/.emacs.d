@@ -24,6 +24,7 @@
 (require 'init-neotree)
 (require 'init-jinx)
 (require 'init-read)
+(require 'init-gnus)
 
 (autoload 'practice-mode "practice")
 (setq auto-mode-alist (cons '("\\.cmm\\'" . practice-mode) auto-mode-alist))
