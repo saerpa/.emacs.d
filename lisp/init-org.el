@@ -13,7 +13,9 @@
 	org-hide-leading-stars t
 	x-underline-at-descent-line t)
   (setq org-directory "~/Org")
-  (setq org-agenda-files (list (concat org-directory "/Diary/gtd.org")))
+  (setq org-agenda-files (list
+			  (concat org-directory "/Diary/gtd.org")
+			  (concat org-directory "/Diary/work.org")))
   (setq org-todo-keywords
 	'((sequence "TODO(t)" "PENDING(p)" "|" "CANCEL(c)" "DONE(d)")))
   (setq org-todo-keyword-faces '(("CANCEL" :foreground "maroon" :weight bold)
