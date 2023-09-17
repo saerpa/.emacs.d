@@ -16,8 +16,6 @@
 (add-hook 'after-init-hook 'delete-selection-mode)
 (add-hook 'after-init-hook 'global-auto-revert-mode)
 (add-hook 'after-init-hook 'global-hl-line-mode)
-(add-hook 'before-save-hook 'delete-trailing-lines)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (use-package move-dup :ensure t :defer t
   :hook
